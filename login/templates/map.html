@@ -1,0 +1,87 @@
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title>jVectorMap demo</title>
+
+
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'TrendLens/map.css' %}" type="text/css" media="screen"/>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'TrendLens/jquery-jvectormap-2.0.3.css' %}" type="text/css" media="screen"/>
+    {% load staticfiles %}
+    <script src="{% static 'TrendLens/jquery.js' %}"></script>
+    {% load staticfiles %}
+    <script src="{% static 'TrendLens/jquery-jvectormap-2.0.3.min.js' %}"></script>
+    {% load staticfiles %}
+    <script src="{% static 'TrendLens/jquery-jvectormap-world-mill-en.js' %}"></script>
+
+    <script type="text/javascript">
+
+var cdata = {"US": "35", "NO": "15", "SE": "17", "GB": "20", "ES": "10"};
+    function focusonIndia(){
+      var mapObj = $('#world-map').vectorMap('get', 'mapObject');
+
+      mapObj.setFocus({region: 'IN', animate: 'true'});
+      mapObj.setSelectedRegions('IN');
+      mapObj.label.show();
+
+    }
+
+
+
+    $(function(){
+
+
+      var map = $('#world-map').vectorMap({
+        map: 'world_mill_en',
+        regionStyle: {
+          initial: {
+            fill: '#B8E186'
+          },
+          selected: {
+            fill: '#F4A582'
+          },
+        },
+        series: {
+     //this is the object for passing country/region data into
+     regions: [{
+       //define the range of color values
+       scale: ['#DEEBF7', '#08519C'],
+       //define the function that maps data to color range
+       normalizeFunction: 'linear',
+       //define the coloration method
+       attribute: 'fill',
+       //define the array of country data
+       values: cdata
+     }]
+   },
+
+
+
+      });
+
+      document.getElementById("myBtn").onclick = focusonIndia;
+
+
+
+    });
+
+
+
+
+    </script>
+
+
+  </head>
+  <body>
+
+    <div id="world-map" style="position: absolute; width: 100%; height: 100%; top: 0; margin-left: -8px;">
+      <!-- <button id="myBtn">Try it</button> -->
+      
+
+    </div>
+    
+
+    
+  </body>
+  </html> ~

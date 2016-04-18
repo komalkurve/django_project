@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>TrendLens</title>
+
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>	
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'TrendLens/try.css' %}" />
+	
+</head>
+<body>
+
+<div class="outer"> 
+<div class="middle"> 
+<div class="inner"> 
+<div class="flip-container">
+    <div class="flipper child col-md-12" onclick="this.classList.toggle('flipped')">
+        <div class="col-md-4 col-md-offset-4 well front">
+            <div class="text-center">SIGN IN</div>
+            <div class="col-md-12 divider-title"></div>
+            <div class="form-group">
+                <label for="usr">Name:</label>
+                <input type="text" class="form-control" id="user">
+            </div>
+            <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control" id="password">
+            </div>
+        </div>
+        <div class="col-md-4 col-md-offset-4 well back">
+            Back
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+
+</body>
+</html>

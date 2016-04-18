@@ -1,0 +1,5 @@
+{% load staticfiles %}
+@font-face {
+  font-family: 'SlimJoe';
+  src: url('{% static 'TrendLens/slim_joe.otf' %}');
+}

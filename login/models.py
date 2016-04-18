@@ -1,0 +1,40 @@
+from django.db import models
+from django.utils import timezone
+
+# Create your models here.
+class Twit(models.Model):
+   keyword = models.CharField(max_length = 100, primary_key= True)
+   freq = models.IntegerField()
+   num = models.CharField(max_length = 100)
+
+   def __str__(self):              # __unicode__ on Python 2
+        return self.keyword
+
+
+
+class Twitlocation(models.Model):
+
+
+   number = models.AutoField(primary_key = True)
+   keyword = models.CharField(max_length = 100)
+   freq = models.IntegerField()
+   location = models.CharField(max_length = 100)
+
+
+   def __str__(self):              # __unicode__ on Python 2
+        return self.keyword
+
+
+class Twittime(models.Model):
+   number = models.AutoField(primary_key = True)
+   time = models.DateTimeField()
+   keyword = models.CharField(max_length = 100)
+   freq = models.IntegerField()
+
+   def save(self, *args, **kwargs):
+        ''' On save, update timestamps '''
+        self.time = timezone.now()
+        return super(Twittime, self).save(*args, **kwargs)
+
+   def __str__(self):              # __unicode__ on Python 2
+        return self.keyword

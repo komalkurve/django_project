@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TrendLens</title>
+
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'TrendLens/home_experiment.css' %}" />
+    <style type="text/css">
+        {% load staticfiles %}
+            @font-face {
+                font-family: 'SlimJoe';
+                src: url('{% static 'TrendLens/slim_joe.otf' %}');
+            }
+            @font-face {
+                font-family: 'QuarcaExtRegular';
+                src: url('{% static 'TrendLens/QuarcaExtRegular.otf' %}');
+            }
+            @font-face {
+                font-family: 'FoxCat';
+                src: url('{% static 'TrendLens/FoxCat.ttf' %}');
+            }
+
+    </style>
+
+    <script type="text/javascript">
+
+    function map_result(){
+      location.href = '{% url 'map' %}';
+    }
+
+    $(function(){
+    $('#searchbox').keypress(function(e){
+        if(e.which == 13){//Enter key pressed
+            document.getElementById('searchbutton').click();
+        }
+    });
+
+    });
+
+    </script>
+
+
+</head>
+<body>
+
+<div class="container-fluid top">
+        <div class="row welcome">
+            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                <p >Welcome guest_,</p>
+            </div>
+        </div>
+
+        <div class="row greeting">
+            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                <p>GOOD EVENING</p>
+            </div>
+        </div>
+
+</div>
+
+<div class="container-fluid bottom">
+    <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#search">SEARCH</a></li>
+                <li><a data-toggle="tab" href="#compare">COMPARE</a></li>
+                <li><a data-toggle="tab" href="#timeline">TIMELINE</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="search" class="tab-pane fade in active">
+
+                    <div class="row searchboxes" style="text-align:center;">
+                        <div class="col-lg-6 col-lg-offset-3" style="float: none; margin: 0 auto;">
+
+                          <form  method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+
+                                <input id="searchbox" type="text" class="form-control search-input" placeholder="Search for tags" aria-describedby="basic-addon2" name="word" value="default">
+                                <div class="input-group-btn">
+                                    <a class="btn btn-default search-icon search-input" type="submit" id="searchbutton" value = "search"><i class="glyphicon glyphicon-search glyphicon-rotate-180" ></i></a>
+
+                                </div>
+                            </div>
+                         </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="compare" class="tab-pane fade">
+                    <div id="search" class="tab-pane fade in active">
+
+                    <div class="row searchboxes" style="float: none; margin: 0 auto;">
+                        <div class="col-lg-3 tag_one" >
+                            <div class="input-group">
+                                <input id="searchbox" type="text" class="form-control search-input" placeholder="Search for tags" aria-describedby="basic-addon2">
+                                <div class="input-group-btn">
+
+                                    <a class="btn btn-default search-icon search-input" type="submit" id="searchbutton" onClick="document.location.href='{% url 'map' %}'"><i class="glyphicon glyphicon-search glyphicon-rotate-180" ></i></a>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 tag_two" >
+                            <div class="input-group">
+                                <input id="searchbox" type="text" class="form-control search-input" placeholder="Search for tags" aria-describedby="basic-addon2">
+                                <div class="input-group-btn">
+
+                                    <a class="btn btn-default search-icon search-input" type="submit" id="searchbutton" onClick="document.location.href='{% url 'map' %}'"><i class="glyphicon glyphicon-search glyphicon-rotate-180" ></i></a>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                </div>
+
+                <div id="timeline" class="tab-pane fade">
+                    <<div id="search" class="tab-pane fade in active">
+
+                    <div class="row searchboxes">
+                        <div class="col-lg-6" style="float: none; margin: 0 auto;">
+                            <div class="input-group">
+                                <input id="searchbox" type="text" class="form-control search-input" placeholder="Search for tags" aria-describedby="basic-addon2">
+                                <div class="input-group-btn">
+
+                                    <a class="btn btn-default search-icon search-input" type="submit" id="searchbutton" onClick="document.location.href='{% url 'map' %}'"><i class="glyphicon glyphicon-search glyphicon-rotate-180" ></i></a>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                </div>
+            </div>
+
+</div>
+
+
+</body>
+</html>

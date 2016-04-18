@@ -1,0 +1,63 @@
+.slider-wrapper {
+  width: 500px;
+  height: 270px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.slider-wrapper:hover { cursor: none; }
+
+.comparison-slider {
+  position: absolute;
+  width: 4px;
+  left: 50%;
+  top: -10px;
+  bottom: -15px;
+  background-image: -webkit-linear-gradient(top, rgba(59,144,203,0) 0, #64b700 2%, #64b700 98%, rgba(59,144,203,0) 100%);
+  background-image: -moz-linear-gradient(top, rgba(59,144,203,0) 0, #64b700 2%, #64b700 98%, rgba(59,144,203,0) 100%);
+  background-image: -o-linear-gradient(top, rgba(59,144,203,0) 0, #64b700 2%, #64b700 98%, rgba(59,144,203,0) 100%);
+  background-image: linear-gradient(to bottom, rgba(59,144,203,0) 0, #64b700 2%, #64b700 98%, rgba(59,144,203,0) 100%);
+  -webkit-box-shadow: 0 0 10px 1px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0 0 10px 1px rgba(0,0,0,0.4);
+  box-shadow: 0 0 10px 1px rgba(0,0,0,0.4);
+}
+
+.before-wrapper {
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border: 2px solid #222;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: no-repeat;
+}
+
+.after-wrapper, .after-image {
+  border-radius: 0 8px 8px 0;
+  -moz-border-radius: 0 8px 8px 0;
+  -webkit-border-radius: 0 8px 8px 0;
+}
+
+.after-wrapper {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transform: translateX(50%);
+  transform: translateX(50%);
+}
+
+.after-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background: url("after.png") no-repeat;
+}
